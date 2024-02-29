@@ -1,4 +1,4 @@
-# PI_4SEM_2024
+# HACKER SCHOOL (TEMPORARIO)
 _________
 <h2>Projeto Rede social hacker etico </h2>
 
