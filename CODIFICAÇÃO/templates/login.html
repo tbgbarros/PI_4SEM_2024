@@ -1,0 +1,21 @@
+<!-- templates/login.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login de Usuário</title>
+</head>
+<body>
+    <h1>Login de Usuário</h1>
+    {% if error %}
+        <p>Usuário ou senha inválidos. Tente novamente.</p>
+    {% endif %}
+    <form action="{{ url_for('user.login') }}" method="post">
+        <label for="username">Nome de usuário:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
