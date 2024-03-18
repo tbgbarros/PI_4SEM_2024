@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Meu Website{% endblock %}
+
+{% block content %}
+    <h2>Bem-vindo ao Meu Website!</h2>
+    <p>Esta é a página inicial.</p>
+    <a href="{{ url_for('cadastro') }}" class="btn btn-primary">Cadastro</a>
+    <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+{% endblock %}
