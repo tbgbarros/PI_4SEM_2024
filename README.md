@@ -1,4 +1,4 @@
-# Rede Social de Hackers
+# Rede Social do Hackers do bem
 
 Bem-vindo à nossa rede social exclusiva para hackers, entusiastas de segurança cibernética e programadores! Aqui, você pode aprender, compartilhar e colaborar com outros membros da comunidade.
 
