@@ -4,3 +4,7 @@ PALETA DE CORES
 
 <h1>Fonte Projeto</h1>
 <img src="/DESIGN/Anonymous-Pro-Regular.png">
+
+<h1>LOGOS</h1>
+<img src="/DESIGN/hackers1.png">
+
