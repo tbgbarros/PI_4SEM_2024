@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
+    { %load static% }
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackers School</title>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{%static 'images/icons/favicon.ico'%}" />
+    <link rel="stylesheet" href="{% static '/css/meu.css' %}">
+
+    <link rel="stylesheet" href="{%static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}
+        ">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+        href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+
+
+
+    <link rel="stylesheet" type="text/css" href="{%static 'css/main.css'%}">
+    <!--===============================================================================================-->
+
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <!--===============================================================================================-->
+
 </head>
 
 <body>
@@ -13,8 +49,11 @@
     {% block title %}Home{% endblock %}
 
     {% block content %}
-    <h1>Welcome to Flask App</h1>
+    <h1>Hackers School</h1>
     {% endblock %}
+    <div class="login100-pic js-tilt" data-tilt>
+        <img src="{%static 'images/img-01.png'%}" alt="IMG">
+    </div>
 </body>
 
 </html>
