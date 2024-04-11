@@ -26,3 +26,11 @@ li a {
 li a:hover {
     background-color: #111;
 }
+
+.logoHome {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 20px;
+}
