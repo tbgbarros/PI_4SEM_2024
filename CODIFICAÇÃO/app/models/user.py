@@ -1,9 +1,11 @@
 import binascii
+from flask_login import LoginManager
+from flask_login import LoginManager, UserMixin
 from app import db
 from cryptography.fernet import Fernet
 import base64
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     password_encrypted = db.Column(db.LargeBinary)
@@ -28,3 +30,6 @@ class User(db.Model):
         except (binascii.Error, ValueError):
             # Tratar exceções relacionadas à decodificação de base64 ou chave inválida
             return False
+        
+    
+   

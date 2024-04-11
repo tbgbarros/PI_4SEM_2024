@@ -24,4 +24,5 @@ def create_app():
     app.register_blueprint(auth_controller.bp)
     app.register_blueprint(main_controller.bp)
 
+
     return app
