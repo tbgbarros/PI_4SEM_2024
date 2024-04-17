@@ -31,11 +31,12 @@
 </head>
 
 <body>
-    <nav>
+    <nav class="navbar navbar-light bg-dark navbar-expand-lg">
         <ul>
             <li><a href="{{ url_for('main.index') }}">Home</a></li>
             <li><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
             <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            <li><a class="d-flex" href="{{ url_for('auth.login') }}">Sair</a></li>
         </ul>
     </nav>
     <div>

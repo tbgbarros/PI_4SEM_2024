@@ -19,7 +19,7 @@
         {{ form.submit() }}
     </div>
 </form>
-{% endblock %}
+
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
@@ -50,22 +50,22 @@
 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
-                        Login
+                        Logar
                     </button>
                 </div>
-                <img src="{{ url_for('static', filename='images/img-01.png') }}" alt="Logo">
+                <!-- <img src="{{ url_for('static', filename='images/img-01.png') }}" alt="Logo"> -->
                 <div class="text-center p-t-12">
                     <span class="txt1">
-                        Forgot
+                        Lembrar-me
                     </span>
                     <a class="txt2" href="#">
-                        Username / Password?
+                        Usuario / Senha?
                     </a>
                 </div>
 
                 <div class="text-center p-t-136">
-                    <a class="txt2" href="#">
-                        Create your Account
+                    <a class="txt2" href="{{ url_for('auth.signup') }}">
+                        Crie sua conta!
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -73,3 +73,5 @@
         </div>
     </div>
 </div>
+
+{% endblock %}

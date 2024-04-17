@@ -14,11 +14,13 @@ call venv\Scripts\activate
 :: Instala as dependências do projeto a partir do arquivo requirements.txt
 pip install -r requirements.txt
 
+python run.py
+
 :: Exibe mensagem de conclusão
-echo Ambiente virtual Python criado e ativado em "%default_folder%\project_temp\venv"
+@REM echo Ambiente virtual Python criado e ativado em "%default_folder%\project_temp\venv"
 
-::Abre vscode
-code .
+@REM ::Abre vscode
+@REM code .
 
-::exit
-exit /b 0
+@REM ::exit
+@REM exit /b 0
