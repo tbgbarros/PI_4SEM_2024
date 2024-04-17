@@ -36,3 +36,5 @@ Bem-vindo à nossa rede social exclusiva para hackers, entusiastas de segurança
 Em caso de dúvidas ou sugestões, entre em contato com a equipe do projeto.
 
 Divirta-se explorando a rede social e compartilhando conhecimento! 🚀🔐
+
+## Requisitos para funcionamento do projeto
