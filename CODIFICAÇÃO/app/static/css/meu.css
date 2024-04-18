@@ -35,3 +35,22 @@ li a:hover {
     border-radius: 20px;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
 }
+
+divSizeLogin {}
+
+.divLogin {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    align-items: center;
+}
+
+.container1 {
+    font-size: 24px;
+    margin: 25px;
+    width: 650px;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
+}
