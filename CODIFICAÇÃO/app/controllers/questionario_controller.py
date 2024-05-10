@@ -2,7 +2,7 @@ from flask import render_template, request
 from flask import Blueprint, redirect, url_for, flash
 from app.models.openia_questionario import OpeniaQuestionario
 
-openia_questionario = OpeniaQuestionario(api_key="sk-proj-bOD0E3MY5qRyxWHi6VcCT3BlbkFJ4eyu17sSuXNSLTsOGwL7")
+openia_questionario = OpeniaQuestionario(api_key="")
 
 
 bp = Blueprint('quest', __name__, url_prefix='/quest')
