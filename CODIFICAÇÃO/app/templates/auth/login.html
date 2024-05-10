@@ -3,37 +3,22 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="POST" action="{{ url_for('auth.login') }}">
-    {{ form.hidden_tag() }}
-    <div>
-        {{ form.username.label }} {{ form.username }}
-    </div>
-    <div>
-        {{ form.password.label }} {{ form.password }}
-    </div>
-    <div>
-        {{ form.remember_me() }} {{ form.remember_me.label }}
-    </div>
-    <div>
-        {{ form.submit() }}
-    </div>
-</form>
 
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <!-- <div class="login100-pic js-tilt" data-tilt>
-                <img src="{{ url_for('static', filename='images/img-01.png') }}" alt="IMG">
-            </div> -->
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="{{ url_for('static', filename='images/hackers5-2.png') }}" alt="IMG">
+            </div>
 
-            <form class="login100-form validate-form">
+            <form class="login100-form validate-form" method="POST" action="{{ url_for('auth.login') }}">
+                {{ form.hidden_tag() }}
                 <span class="login100-form-title">
-                    Member Login
+                    Faça seu Login, venha para o Clan!
                 </span>
 
-                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Email">
+                <div class="wrap-input100 validate-input" data-validate="Entre com um usuário válido!">
+                    {{ form.username(class="input100", placeholder="Usuário") }}
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -41,7 +26,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="pass" placeholder="Password">
+                    {{ form.password(class="input100", placeholder="Senha") }}
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>
@@ -49,17 +34,16 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
                         Logar
                     </button>
                 </div>
-                <!-- <img src="{{ url_for('static', filename='images/img-01.png') }}" alt="Logo"> -->
                 <div class="text-center p-t-12">
                     <span class="txt1">
-                        Lembrar-me
+                        {{ form.remember_me() }} Lembrar-me
                     </span>
                     <a class="txt2" href="#">
-                        Usuario / Senha?
+                        Esqueceu seu Usuário / Senha?
                     </a>
                 </div>
 
@@ -73,5 +57,6 @@
         </div>
     </div>
 </div>
+
 
 {% endblock %}
