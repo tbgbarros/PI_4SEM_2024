@@ -20,8 +20,11 @@ def create_app():
     migrate.init_app(app, db)
     
 
-    from app.controllers import auth_controller, main_controller
+    from app.controllers import auth_controller, main_controller, questionario_controller
     app.register_blueprint(auth_controller.bp)
     app.register_blueprint(main_controller.bp)
+    app.register_blueprint(questionario_controller.bp)
+
+   
 
     return app
