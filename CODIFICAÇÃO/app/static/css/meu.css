@@ -35,3 +35,35 @@ li a:hover {
     border-radius: 20px;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
 }
+
+/* SECTION MUDANCA LOGIN */
+
+section {
+    position: relative;
+    max-width: 400px;
+}
+
+.intro {
+    margin-top: 30px;
+    padding: 30px;
+    height: 300px;
+}
+
+.inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.conteudo {
+    width: 20vw;
+    height: 50vh;
+    background-color: transparent;
+    margin: auto;
+    border-radius: 1%;
+    display: table;
+}
+
+.loginBody {
+    display: flex;
+}
