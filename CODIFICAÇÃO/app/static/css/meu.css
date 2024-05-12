@@ -1,6 +1,5 @@
 body {
-    background-color: rgb(184, 184, 184);
-
+    background: #797c81;
 }
 
 .bodyLogin {
@@ -12,8 +11,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #dde5f4;
-    height: 100vh;
+    background: #797c81;
+    height: 90vh;
 }
 
 /* ul {
