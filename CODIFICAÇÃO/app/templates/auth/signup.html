@@ -4,7 +4,51 @@
 
 {% block content %}
 
-<div class="limiter">
+<div class="bodyLogin">
+    <div class="screen-1">
+        <div class="">
+            <div>
+                <img src="{{ url_for('static', filename='images/hackers5-2.png') }}" alt="LOGO">
+            </div>
+
+
+            <form class="validate-form" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="" data-validate="Entre com um usuário válido!">
+                    {{ form.username(class="form-control input100", placeholder="Usuário") }}
+                    <span class=""></span>
+                    <span class="">
+                        <i class="fa " aria-hidden="true"></i>
+                    </span><br>
+                </div>
+
+                <div class="" data-validate="Password is required">
+                    {{ form.password(class="form-control input100", placeholder="Senha") }}
+                    <span class=""></span>
+                    <span class="">
+                        <i class="fa" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="" data-validate="Password is required">
+                    {{ form.confirm_password(class="form-control input100", placeholder="Confirme Senha" ) }}
+                    <span class=""></span>
+                    <span class="">
+                        <i class="fa" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="row d-flex justify-content-center align-content-center">
+                    <button class="btn btn-secondary col-3" type="submit">
+                        Logar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="container">
@@ -26,6 +70,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 {% endblock %}

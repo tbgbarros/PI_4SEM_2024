@@ -12,6 +12,17 @@
             </div>
             <div>
                 <h4 class="text-center mb-4">Faça seu Login, venha para o Clan!</h4>
+                <div class="entrarMensagens text-center">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </div>
             </div>
             <!-- FORMULARIO FORM -->
             <form class="imgLogin" method="POST" action="{{ url_for('auth.login') }}">

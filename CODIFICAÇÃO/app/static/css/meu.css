@@ -40,6 +40,29 @@ li a:hover {
     background-color: #111;
 }
 
+ul {
+    list-style-type: none;
+    /* Remove os marcadores de lista */
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    /* Estilos para cada item da lista */
+    margin-bottom: 10px;
+}
+
+.entrarMensagens {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: green;
+}
+
+.entrarMensagens li {
+    list-style-type: none;
+}
+
 .logoHome {
     display: block;
     margin-left: auto;
