@@ -36,7 +36,10 @@
             <li><a href="{{ url_for('main.index') }}">Home</a></li>
             <li><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
             <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-            <li><a class="d-flex" href="{{ url_for('auth.login') }}">Sair</a></li>
+            {% if 'username' in session %} 
+            <li><span>Usuário: {{ session['username'] }}</span></li>
+            <li><a class="d-flex" href="{{ url_for('auth.logout') }}">Sair</a></li>
+            {% endif %}
         </ul>
     </nav>
     <div>

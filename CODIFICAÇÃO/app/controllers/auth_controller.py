@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import Blueprint, render_template, redirect, url_for, flash, session
 from app.forms import SignupForm, LoginForm
 from app.models.user import User
 from app import db
@@ -24,5 +24,14 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('auth.login'))
+        session['username'] = form.username.data
         return redirect(url_for('main.principal'))
     return render_template('auth/login.html', title='Sign In', form=form)
+
+
+
+
+@bp.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('main.index'))  # Redireciona para a rota principal após o logout
