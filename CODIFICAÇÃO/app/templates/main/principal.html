@@ -1,10 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha o tema</title>
 </head>
+
 <body>
     <h1>Escolha o tema para gerar o questionário:</h1>
     <form action="/quest/gerar" method="post">
@@ -16,4 +23,7 @@
         <button type="submit">Gerar Questionário</button>
     </form>
 </body>
+
 </html>
+
+{% endblock %}

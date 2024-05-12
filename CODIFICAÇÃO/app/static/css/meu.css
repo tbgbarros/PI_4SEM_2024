@@ -37,33 +37,32 @@ li a:hover {
 }
 
 /* SECTION MUDANCA LOGIN */
+.config {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    max-width: 100%;
+    max-height: 100%;
 
-section {
-    position: relative;
-    max-width: 400px;
-}
-
-.intro {
-    margin-top: 30px;
-    padding: 30px;
-    height: 300px;
-}
-
-.inner {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
 }
 
 .conteudo {
-    width: 20vw;
-    height: 50vh;
+    position: relative;
+    max-width: 60%;
     background-color: transparent;
-    margin: auto;
-    border-radius: 1%;
-    display: table;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
 }
 
-.loginBody {
-    display: flex;
+.textCenter {
+    text-align: center;
 }
+
+.frase-login {}

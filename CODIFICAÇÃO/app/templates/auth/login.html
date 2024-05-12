@@ -4,17 +4,25 @@
 
 {% block content %}
 
-<section>
-    <div class="intro">
+<section class="config">
+    <div class="conteudo">
         <div class="inner">
-            <div class="conteudo">
-                <!-- FORMULARIO FORM -->
-                <form class="imgLogin" method="POST" action="{{ url_for('auth.login') }}">
+            <div class="">
+                <div>
                     <img src="{{ url_for('static', filename='images/hackers53.png') }}" alt="LOGO">
-                    {{ form.hidden_tag() }}
-                    <span class="">
+                </div>
+                <div>
+                    <span class="frase-login pt-4 pb-4    bg-info ">
                         Faça seu Login, venha para o Clan!
                     </span>
+                </div>
+                <!-- FORMULARIO FORM -->
+                <form class="imgLogin" method="POST" action="{{ url_for('auth.login') }}">
+
+
+                    {{ form.hidden_tag() }}
+
+
 
                     <div class="" data-validate="Entre com um usuário válido!">
                         {{ form.username(class="input100", placeholder="Usuário") }}
