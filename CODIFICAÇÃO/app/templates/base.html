@@ -31,19 +31,46 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-dark navbar-expand-lg">
-        <ul>
-            <li><a href="{{ url_for('main.index') }}">Home</a></li>
-            <li><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
+    <nav class="navbar navbar-expand-lg bg-light ">
+        <div class="container-fluid">
+
+            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('main.index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('auth.login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.signup') }}">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.usuario') }}">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.rank') }}">Rank</a>
+                </li>
+
+
+            </ul>
+
+
             {% if 'username' in session %}
-            <li><a href="{{ url_for('main.usuario') }}">Perfil</a></li>
-            <li><a href="{{ url_for('main.rank') }}">Rank</a></li>
-            <li><span>Usuário: {{ session['username'] }}</span></li>
-            <li><a class="d-flex" href="{{ url_for('auth.logout') }}">Sair</a></li>
+            <li class="nav-item">
+
+            </li>
+            <li class="nav-item">
+                <img src="{{ url_for('static', filename='images/rank/01.png')}}" alt="rank1">
+                <span>Usuário: {{ session['username'] }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout') }}">Sair</a>
+            </li>
             {% else %}
-            <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            <a href="{{ url_for('auth.login') }}">Login</a>
             {% endif %}
-        </ul>
+        </div>
+
     </nav>
     <div class="entrarMensagens text-center">
         {% with messages = get_flashed_messages() %}
