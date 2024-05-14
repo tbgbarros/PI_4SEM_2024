@@ -39,13 +39,15 @@ class OpeniaQuestionario:
 
 
     def verificar_respostas(self, resposta):
+        
+        #print(f" Isto é o que esta vindo para o chat :{resposta}")
         messages = [
-                    {"role": "system", "content": f"Voce ira receber um conjunto de 5 perguntas e {resposta} e ira verificar quais estão corretas ou não, caso estejam erradas voce dirá porque estão erradas. Por favor seja muito certo de sua respostas, leia bem a pergunta e as respostas antes de dizer se estão corretas ou não. Coloque a questão , a questão que o usuario selecionou, e se ela esta certa ou errada "},
+                    {"role": "system", "content": f"verifique para mim esse conjunto de perguntas e alternativas  e me diga quais acertei e quais errei . "},
                     {"role": "user","content":f"as {resposta} são essas." }]
         for pergunta, opcao in resposta.items():
             messages.append({"role": "system", "content": f"Pergunta: {pergunta}\nResposta: {opcao}\n"})
     
-
+        
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=messages,
@@ -54,7 +56,20 @@ class OpeniaQuestionario:
         )
         respostas_text = response.choices[0].message.content
 
-        respostas_text = respostas_text.split('\n\n', 1)[1]
+        print("Conteúdo retornado pela API do chat:", respostas_text)
+        
+       
+       
+        split_respostas = respostas_text.split('\n\n', 1)
+        if len(split_respostas) > 1:
+            respostas_text = split_respostas[1]
+        else:
+        # Lide com o caso em que não há delimitadores '\n\n' suficientes
+        # Por exemplo, defina um valor padrão ou lance uma exceção.
+             pass
+    
         respostas_ia = respostas_text.split("\n\n")
+
+        
 
         return respostas_ia

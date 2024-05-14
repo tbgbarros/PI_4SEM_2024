@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Questionário</h1>
-    <form action="processar" method="post">
+    <form action="{{ url_for('quest.processar_respostas') }}" method="post">
         {% for pergunta, opcoes in perguntas %}
         <div class="pergunta">
             <p>{{ pergunta }}</p>
