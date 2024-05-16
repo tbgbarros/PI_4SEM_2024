@@ -7,9 +7,9 @@
 body,
 html {
     /* background: #797c81; */
-    background-image: linear-gradient(to right, #525252, #afafaf, #525252);
+    background-image: linear-gradient(to right, #525252, #afafaf, #657e65, #af94b9, #525252);
     background-size: 500% 100%;
-    animation: degradeBackground 3s infinite alternate;
+    animation: degradeBackground 10s infinite alternate;
     height: 100%;
     font-family: Poppins-Regular, sans-serif;
 }
@@ -183,6 +183,14 @@ img.icone {
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.9);
 }
 
+.logotipo {
+    display: inline;
+}
+
+.imgLogo {
+    width: 40%;
+}
+
 /* SECTION MUDANCA LOGIN */
 .config {
     padding: 10px;
@@ -269,7 +277,7 @@ button:hover {
     width: 20px;
 }
 
-.container {
+.container1 {
     max-width: 600px;
     margin: auto;
     padding: 30px;
@@ -281,7 +289,7 @@ button:hover {
     backdrop-filter: blur(55px);
 }
 
-.container:hover {
+.container1:hover {
     box-shadow: 0 0 5em rgba(0, 0, 0, 0.5);
 }
 
