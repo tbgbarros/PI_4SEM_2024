@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" />
     <!--===============================================================================================-->
@@ -21,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"> -->
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/meu.css') }}">
     <!--===============================================================================================-->
@@ -31,7 +32,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark ">
+    <nav class="navbar navbar-expand-lg bg-dark navbar1">
         <div class="container-fluid">
 
             <ul class="navbar-nav me-auto mb-4 mb-lg-0">
@@ -50,17 +51,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('main.rank') }}">Rank</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.principal') }}">Quiz</a>
+                </li>
 
 
             </ul>
 
 
-            {% if 'username' in session %}
+
             <li class="nav-item">
 
             </li>
             <li class="nav-item">
-                <img src="{{ url_for('static', filename='images/rank/01.png')}}" alt="rank1">
+                {% if 'username' in session %}
+                <img class="imgRank" src="{{ url_for('static', filename='images/rank/rank_master2.png')}}" alt="rank1">
                 <span>Usuário: {{ session['username'] }}</span>
             </li>
             <li class="nav-item">
@@ -69,6 +74,7 @@
             {% else %}
             <a href="{{ url_for('auth.login') }}">Login</a>
             {% endif %}
+            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
         </div>
 
     </nav>

@@ -1,5 +1,87 @@
-body {
+body,
+html {
     background: #797c81;
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+    .screen-1 {
+        padding: 1em;
+    }
+
+    .navbar {
+        display: none;
+        /* Oculta o navbar em telas menores que 769px */
+    }
+
+    .screen-1 .form-group {
+        margin-bottom: 1em;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-btn {
+        display: none;
+        /* Oculta o botão de menu em telas maiores que 768px */
+    }
+}
+
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a {
+    color: #ffffff;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #26ff00;
+}
+
+ul,
+li {
+    margin: 0px;
+    list-style-type: none;
 }
 
 .bodyLogin {
@@ -15,48 +97,31 @@ body {
     height: 90vh;
 }
 
-/* ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-} */
-
-li {
-    float: left;
+.input100 {
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 15px;
 }
 
-li a {
-    display: block;
+.navbar1 {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
+.navbar1 a:hover {
+    background-color: #545454;
+    border-radius: 10px;
 }
 
-ul {
-    list-style-type: none;
-    /* Remove os marcadores de lista */
-    padding: 0;
-    margin: 0;
-}
 
-ul li {
-    /* Estilos para cada item da lista */
-    margin-bottom: 10px;
-}
 
 .entrarMensagens {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-    color: green;
+    color: rgb(255, 255, 255);
 }
 
 .entrarMensagens li {
@@ -104,117 +169,45 @@ ul li {
 .frase-login {}
 
 .screen-1 {
-    background: #f1f7fe;
+    background: #5f6264;
     padding: 2em;
     display: flex;
     flex-direction: column;
     border-radius: 30px;
-    box-shadow: 0 0 5em #e6e9f9;
+    box-shadow: 0 0 5em #3f3f44;
     gap: 1em;
 }
 
-.screen-1 .logo {
-    margin-top: -3em;
+.input-icon {
+    position: relative;
 }
 
-.screen-1 .email {
-    background: white;
-    box-shadow: 0 0 2em #e6e9f9;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    border-radius: 20px;
-    color: #4d4d4d;
-    margin-top: -3em;
+.input-icon-field {
+    padding-left: 40px;
+    /* Ajuste a largura conforme necessário */
 }
 
-.screen-1 .email input {
-    outline: none;
-    border: none;
+.input-icon i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #666666;
 }
 
-.screen-1 .email input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-
-.screen-1 .email input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-
-.screen-1 .email input::placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-
-.screen-1 .email ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-}
-
-.screen-1 .password {
-    background: white;
-    box-shadow: 0 0 2em #e6e9f9;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    border-radius: 20px;
-    color: #4d4d4d;
-}
-
-.screen-1 .password input {
-    outline: none;
-    border: none;
-}
-
-.screen-1 .password input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-
-.screen-1 .password input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-
-.screen-1 .password input::placeholder {
-    color: black;
-    font-size: 0.9em;
-}
-
-.screen-1 .password ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-}
-
-.screen-1 .password .show-hide {
-    margin-right: -5em;
-}
-
-.screen-1 .login {
-    padding: 1em;
-    background: #3e4684;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-}
-
-.screen-1 .footer {
-    display: flex;
-    font-size: 0.7em;
-    color: #5e5e5e;
-    gap: 14em;
-    padding-bottom: 10em;
-}
-
-.screen-1 .footer span {
-    cursor: pointer;
+btnColor {
+    color: #5f6264;
 }
 
 button {
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #26ff00;
+}
+
+.imgRank {
+    border-radius: 10px;
+    width: 50px;
 }
