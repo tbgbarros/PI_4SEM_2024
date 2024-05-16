@@ -9,6 +9,8 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
 }
 
 /* Estilo para o primeiro colocado (maior) */
@@ -36,4 +38,20 @@
 /* Adicionando espaço entre os cards */
 .card+.card {
     margin-top: 20px;
+}
+
+img.imgRankMaster {
+    width: 80%;
+}
+
+img.imgRankSecond {
+    width: 60%;
+}
+
+img.imgRankTirth {
+    width: 40%;
+}
+
+img.imgRankAll {
+    width: 40%;
 }
