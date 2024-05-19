@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Respostas do Questionário</title>
+    <title>Resultados do Questionário</title>
 </head>
 <body>
-    <h1>Respostas do Questionário</h1>
-    <ul>
-        {% for resposta in respostas %}
-        <li>{{ resposta }}</li>
+    <h1>Resultados do Questionário</h1>
+    <table border="1">
+        <tr>
+            <th>Pergunta</th>
+            <th>Sua Resposta</th>
+            <th>Resposta Correta</th>
+            <th>Correto?</th>
+        </tr>
+        {% for resultado in resultados %}
+        <tr>
+            <td>{{ resultado[0] }}</td>
+            <td>{{ resultado[1] }}</td>
+            <td>{{ resultado[2] }}</td>
+            <td>{% if resultado[3] %}Sim{% else %}Não{% endif %}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
+    <p>Total de acertos: {{ acertos }}</p>
 </body>
 </html>
+
