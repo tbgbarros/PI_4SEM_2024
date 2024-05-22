@@ -76,3 +76,9 @@
 
     font-size: 29px;
 }
+
+.borderTable {
+    border-radius: 10px;
+}
+
+table.tableConfig {}
