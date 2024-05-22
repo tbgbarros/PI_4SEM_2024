@@ -4,10 +4,10 @@ from cryptography.fernet import Fernet
 import base64
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    password_encrypted = db.Column(db.LargeBinary)
-    hash = db.Column(db.String(44))  # Store the key as a base64 encoded string
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(64), nullable=False, index=True, unique=True)
+    password_encrypted = db.Column(db.LargeBinary, nullable=False)
+    hash = db.Column(db.String(64), nullable=False)
 
     def __init__(self, username, password):
         self.username = username
