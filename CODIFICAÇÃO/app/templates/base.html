@@ -75,58 +75,6 @@
             </ul>
         </div>
     </nav>
-    <!-- <nav class="navbar navbar-expand-lg bg-dark text-white">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0 ">
-                <li class="nav-item">
-                    <img class="nav-link active text-white icone"
-                        src="{{ url_for('static', filename='images/h1.png') }}" alt="">
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="{{ url_for('main.index') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="{{ url_for('auth.login') }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url_for('auth.signup') }}">Cadastro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url_for('main.usuario') }}">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url_for('main.rank') }}">Rank</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ url_for('main.principal') }}">Quiz</a>
-                </li>
-
-
-            </ul>
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-
-                </li>
-                <li class="nav-item text-white">
-                    {% if 'username' in session %}
-                    <img class="imgRank" src="{{ url_for('static', filename='images/rank/rank_master2.png')}}"
-                        alt="rank1">
-                    <span>Usuário: {{ session['username'] }}</span>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link text-white" href="{{ url_for('auth.logout') }}">Sair</a>
-                </li>
-            </ul>
-
-
-            {% else %}
-            <a href="{{ url_for('auth.login') }}">Login</a>
-            {% endif %}
-            <button class="menu-btn" onclick="toggleMenu()">Menu</button>
-        </div>
-
-    </nav> -->
     <div class="entrarMensagens text-center">
         {% with messages = get_flashed_messages() %}
         <!-- {% if messages %}
