@@ -8,6 +8,7 @@ class User(db.Model):
     username = db.Column(db.String(64), nullable=False, index=True, unique=True)
     password_encrypted = db.Column(db.LargeBinary, nullable=False)
     hash = db.Column(db.String(64), nullable=False)
+    pontos = db.Column(db.Integer, default=0) 
 
     def __init__(self, username, password):
         self.username = username
@@ -28,3 +29,7 @@ class User(db.Model):
         except (binascii.Error, ValueError):
             # Tratar exceções relacionadas à decodificação de base64 ou chave inválida
             return False
+        
+    def atualizar_pontos(self, pontos):
+        self.pontos += pontos
+        db.session.commit()

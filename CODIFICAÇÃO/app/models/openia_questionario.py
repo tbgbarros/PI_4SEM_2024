@@ -1,4 +1,5 @@
 import openai, re
+from app.models.user import User
 
 class OpeniaQuestionario:
     def __init__(self, api_key):
@@ -75,7 +76,7 @@ class OpeniaQuestionario:
 
 
     
-    def verificar_respostas(self, respostas_submetidas, respostas_corretas):
+    def verificar_respostas(self, respostas_submetidas, respostas_corretas, username):
         resultados = []
         acertos = 0
 
@@ -126,6 +127,14 @@ class OpeniaQuestionario:
         
         print(f"Resultados: {resultados}")
         print(f"Acertos: {acertos}")
+
+        user = User.query.filter_by(username=username).first()
+
+        # Calcula a pontuação total baseada nos acertos
+        pontos = acertos
+
+        # Atualiza os pontos do usuário no banco de dados
+        user.atualizar_pontos(pontos)
 
         return resultados, acertos
 
