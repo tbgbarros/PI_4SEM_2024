@@ -19,12 +19,12 @@ jobs:
         python-version: '3.x'
 
     - name: Change to repository directory
-      run: cd $GITHUB_WORKSPACE/PI_4SEM_2024/CODIFICAÇÃO 
+      run: cd PI_4SEM_2024/CODIFICAÇÃO 
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install $GITHUB_WORKSPACE/requirements.txt
+        pip install -r requirements.txt
 
     - name: Run script
       env:
