@@ -21,6 +21,7 @@ Flask-Bcrypt==1.0.1
 Flask-Login==0.6.3
 Flask-Migrate==4.0.7
 Flask-SQLAlchemy==3.1.1
+Flask-Testing==0.8.1
 Flask-WTF==1.2.1
 frozenlist==1.4.1
 greenlet==3.0.3
@@ -47,6 +48,8 @@ pydantic_core==2.18.2
 pylint==3.2.2
 PyMySQL==1.1.0
 pytest==8.2.1
+pytest-html==4.1.1
+pytest-metadata==3.1.1
 python-dotenv==1.0.1
 requests==2.31.0
 scrypt==0.8.24

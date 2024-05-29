@@ -3,6 +3,7 @@ from app.forms import SignupForm, LoginForm
 from app.models.user import User
 from app import db
 
+
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
