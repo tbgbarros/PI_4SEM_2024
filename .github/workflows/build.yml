@@ -40,9 +40,32 @@ jobs:
           sleep 5
         done
 
-    - name: Run script
+    - name: Start Flask application
       working-directory: CODIFICAÇÃO
       env:
         CHATGPT_API_KEY: ${{ secrets.CHATGPT_API_KEY }}
         DATABASE_URL: mysql+pymysql://root:root@127.0.0.1:3306/testdb
-      run: python run.py
+      run: |
+        nohup python run.py &
+
+    - name: Wait for Flask to be ready
+      run: |
+        echo "Waiting for Flask to start..."
+        sleep 10
+
+    - name: Test Flask application
+      run: |
+        curl --fail http://127.0.0.1:5000 || (echo "Flask application did not start correctly" && exit 1)
+
+    - name: Run Flask for a specific time
+      run: |
+        echo "Running Flask application for 60 seconds..."
+        sleep 60
+
+    - name: Stop Flask application
+      run: |
+        echo "Stopping Flask application..."
+        pkill -f run.py
+
+    - name: Additional steps
+      run: echo "Continue with the next steps..."
