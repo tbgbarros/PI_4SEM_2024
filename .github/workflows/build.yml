@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install $GITHUB_WORKSPACE/requirements.txt
+        pip install $GITHUB_WORKSPACE/CODIFICAÇÃO/requirements.txt
 
     - name: Run script
       env:
