@@ -18,13 +18,13 @@ jobs:
       with:
         python-version: '3.x'
     
-    - name: List files in the repository
+    - name: List files in the repository before change
       run: ls -R
 
     - name: Change to repository directory
       run: cd CODIFICAÇÃO 
 
-    - name: List files in the repository
+    - name: List files in the repository after change
       run: ls -R
 
     - name: Install dependencies
