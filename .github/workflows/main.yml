@@ -1,4 +1,4 @@
-name: Postagem Vecel HackersSchool
+name: Copy Files to Existing Repository
 
 on:
   push:
@@ -20,13 +20,13 @@ jobs:
 
     - name: Copy files to existing repository
       run: |
-        cp -r PI_4SEM_2024/CODIFICAÇÃO/. HackersSchool
+        cp -r CODIFICAÇÃO/. HackersSchool
         cd HackersSchool
 
     - name: Commit changes
       run: |
         git add .
-        git commit -m "Postagem Online!"
+        git commit -m "Copy files from original repository"
     
     - name: Push changes
       run: |
