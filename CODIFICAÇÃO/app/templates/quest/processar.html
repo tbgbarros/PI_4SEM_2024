@@ -30,6 +30,14 @@
 
     <title>Hackers School</title>
     <title>{% block title %}{% endblock %}</title>
+    <style>
+        .container-custom {
+            max-width: 1200px;
+            /* Define a largura máxima */
+            margin: 0 auto;
+            /* Centraliza o contêiner horizontalmente */
+        }
+    </style>
 </head>
 
 <body>
@@ -76,31 +84,37 @@
         </div>
     </nav>
 
-    <div class="">
-        <div class="">
+    <div class="container container-custom mt-5">
+        <div class="text-center mb-4">
             <h1 class="">Resultados do Questionário</h1>
         </div>
 
         <div class="">
             <table border="2" class="table tamanhoTable">
-                <tr class=" tableCor  center">
-                    <th scope="col" class="text-center thCor">Pergunta</th>
-                    <th scope="col" class="text-center thCor">Sua Resposta</th>
-                    <th scope="col" class="text-center thCor">Resposta Correta</th>
-                    <th scope="col" class="text-center thCor">Correto?</th>
-                </tr>
-                {% for resultado in resultados %}
-                <tr>
-                    <td class="thCor">{{ resultado[0] }}</td>
-                    <td class="thCor">{{ resultado[1] }}</td>
-                    <td class="thCor">{{ resultado[2] }}</td>
-                    <td class="thCor">{% if resultado[3] %}Sim{% else %}Não{% endif %}</td>
-                </tr>
-                {% endfor %}
+                <thead>
+                    <tr class=" tableCor  center">
+                        <th scope="col" class="text-center thCor">Pergunta</th>
+                        <th scope="col" class="text-center thCor">Sua Resposta</th>
+                        <th scope="col" class="text-center thCor">Resposta Correta</th>
+                        <th scope="col" class="text-center thCor">Correto?</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for resultado in resultados %}
+                    <tr>
+                        <td class="thCor">{{ resultado[0] }}</td>
+                        <td class="thCor">{{ resultado[1] }}</td>
+                        <td class="thCor">{{ resultado[2] }}</td>
+                        <td class="thCor">{% if resultado[3] %}Sim{% else %}Não{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
             </table>
         </div>
 
-        <p>Total de acertos: {{ acertos }}</p>
+        <h3 class="text-center">Total de acertos: {{ acertos }}</h3>
     </div>
 
     <script src=" {{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js' ) }}">

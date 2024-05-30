@@ -298,6 +298,22 @@ button:hover {
     box-shadow: 0 0 5em rgba(0, 0, 0, 0.5);
 }
 
+.container2 {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+    background-color: #b7acac;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.156);
+    transition: box-shadow 0.3s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(55px);
+}
+
+.container2:hover {
+    box-shadow: 0 0 5em rgba(0, 0, 0, 0.5);
+}
+
 .form-select {
     transition: border-color 0.3s ease-in-out;
 }
