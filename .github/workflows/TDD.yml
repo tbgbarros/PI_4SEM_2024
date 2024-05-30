@@ -18,7 +18,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install pytest coverage
+        run: pip install pytest coverage SQLAlchemy
 
       - name: Run tests and measure coverage
         run: |
