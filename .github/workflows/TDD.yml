@@ -18,7 +18,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: pip install pytest coverage SQLAlchemy
+        working-directory: CODIFICAÇÃO
+        run: |
+          pip install -r requirements.txt
+      # - name: Install dependencies
+      #   run: pip install pytest coverage SQLAlchemy
 
       - name: Run tests and measure coverage
         run: |
