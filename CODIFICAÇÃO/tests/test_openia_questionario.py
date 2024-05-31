@@ -69,7 +69,6 @@ def test_logout(client):
     response = client.get("/auth/logout", follow_redirects=True)
     assert response.status_code == 200
 
-    # assert "username" not in session
     # Verifica se a sessão do usuário foi limpa
     with client.session_transaction() as session:
         assert "username" not in session
