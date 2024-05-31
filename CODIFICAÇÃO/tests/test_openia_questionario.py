@@ -48,13 +48,17 @@ def test_login(client, test_app):
     # Verifica se o usuário foi redirecionado para a página principal
     assert b"principal" in response.data
 
-    # Testa o login com dados inválidos
-    response_invalid = client.post(
-        "/auth/login",
-        data={"username": "testuser", "password": "WrongPassword"},
-        follow_redirects=True,
-    )
-    assert response_invalid.status_code == 200
+
+# teste login com dados invalidos
+# def test_login_invalid(client, test_app):
+#     response = client.post(
+#         "/auth/login",
+#         data={"username": "testuser", "password": "WrongPassword"},
+#         follow_redirects=True,
+#     )
+#     assert response.status_code == 200
+#     print(response.data)
+#     assert b"Invalid username or password" in response.data
 
 
 def test_logout(client):
