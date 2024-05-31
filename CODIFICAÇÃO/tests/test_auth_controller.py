@@ -6,7 +6,7 @@ from app.models.user import User
 
 
 @pytest.fixture(scope="module")
-def test_app():
+def rodando_app():
     app = create_app()
     app.config["TESTING"] = True
     app.config["SQLALCHEMY_DATABASE_URI"] = (
@@ -19,27 +19,27 @@ def test_app():
 
 
 @pytest.fixture(scope="module")
-def client(test_app):
-    return test_app.test_client()
+def client(rodando_app):
+    return rodando_app.test_client()
 
 
 @pytest.fixture(scope="module")
-def init_database(test_app):
-    with test_app.app_context():
+def init_database(rodando_app):
+    with rodando_app.app_context():
         db.create_all()
         yield db
         db.session.remove()
         db.drop_all()
 
 
-def test_signup_page(client):
+def teste_criar_usuario(client):
     with client:
         response = client.get("/auth/signup")  # Corrija o caminho da rota
         assert response.status_code == 200
         assert b"Criar conta!" in response.data
 
 
-def test_signup_success(client, init_database):
+def teste_usuario_criado_sucesso(client, init_database):
     with client:
         response = client.post(
             "/auth/signup",  # Corrija o caminho da rota
@@ -53,7 +53,7 @@ def test_signup_success(client, init_database):
         assert response.status_code == 200
 
 
-def test_signup_failure(client, init_database):
+def teste_criacao_usuario_falhou(client, init_database):
     with client:
         response = client.post(
             "/auth/signup",  # Corrija o caminho da rota
@@ -68,24 +68,24 @@ def test_signup_failure(client, init_database):
 
 
 @pytest.fixture(scope="function")
-def new_user():
+def novo_usuario():
     user = User(username="testuser", password="Password123")
     return user
 
 
-def test_set_password(new_user):
-    assert new_user.password_encrypted is not None
-    assert new_user.hash is not None
+def test_set_password(novo_usuario):
+    assert novo_usuario.password_encrypted is not None
+    assert novo_usuario.hash is not None
 
 
-def test_check_password(new_user):
-    assert new_user.check_password("Password123") is True
-    assert new_user.check_password("WrongPassword") is False
+def teste_checar_senha(novo_usuario):
+    assert novo_usuario.check_password("Password123") is True
+    assert novo_usuario.check_password("WrongPassword") is False
 
 
-def test_user_creation(test_app, init_database, new_user):
-    with test_app.app_context():
-        db.session.add(new_user)
+def teste_criar_usuario_novo(rodando_app, init_database, novo_usuario):
+    with rodando_app.app_context():
+        db.session.add(novo_usuario)
         db.session.commit()
         user = User.query.filter_by(username="testuser").first()
         assert user is not None

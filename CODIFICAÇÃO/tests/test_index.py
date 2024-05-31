@@ -8,13 +8,13 @@ from app.models.user import User
 
 
 # testes html
-def test_index_page(client):
+def teste_pagina_index(client):
     response = client.get("/")
     assert response.status_code == 200
     assert b'class="logoHome"' in response.data
 
 
-def test_navbar_in_html_template(app):
+def testar_navbar_html(app):
     with app.app_context():
         rendered_html = render_template_string(
             """

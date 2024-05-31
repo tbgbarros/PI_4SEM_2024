@@ -4,7 +4,7 @@ from app.models.user import User
 
 
 @pytest.fixture(scope="module")
-def test_app():
+def teste_rodando():
     app = create_app()
     app.config["TESTING"] = True
     app.config["SQLALCHEMY_DATABASE_URI"] = (
@@ -17,36 +17,36 @@ def test_app():
 
 
 @pytest.fixture(scope="module")
-def test_client(test_app):
-    return test_app.test_client()
+def testar_cliente(teste_rodando):
+    return teste_rodando.test_client()
 
 
 @pytest.fixture(scope="module")
-def init_database(test_app):
-    with test_app.app_context():
+def inicializarDatabase(teste_rodando):
+    with teste_rodando.app_context():
         yield db
         db.session.remove()
 
 
 @pytest.fixture(scope="function")
-def new_user():
+def novo_usuario():
     user = User(username="testuser", password="Password123")
     return user
 
 
-def test_set_password(new_user):
-    assert new_user.password_encrypted is not None
-    assert new_user.hash is not None
+def teste_setar_novo_usuario(novo_usuario):
+    assert novo_usuario.password_encrypted is not None
+    assert novo_usuario.hash is not None
 
 
-def test_check_password(new_user):
-    assert new_user.check_password("Password123") is True
-    assert new_user.check_password("WrongPassword") is False
+def teste_checar_senha(novo_usuario):
+    assert novo_usuario.check_password("Password123") is True
+    assert novo_usuario.check_password("WrongPassword") is False
 
 
-def test_user_creation(test_app, init_database, new_user):
-    with test_app.app_context():
-        db.session.add(new_user)
+def teste_usuario_criacao(teste_rodando, inicializarDatabase, novo_usuario):
+    with teste_rodando.app_context():
+        db.session.add(novo_usuario)
         db.session.commit()
         user = User.query.filter_by(username="testuser").first()
         assert user is not None
