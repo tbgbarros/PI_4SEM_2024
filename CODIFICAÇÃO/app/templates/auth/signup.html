@@ -10,11 +10,9 @@
             <div>
                 <img class="alter" src="{{ url_for('static', filename='images/hackers5-2.png') }}" alt="LOGO">
             </div>
-
-
             <form class="validate-form" method="POST">
                 {{ form.hidden_tag() }}
-                <div class="" data-validate="Entre com um usuário válido!">
+                <div class="" data-validate="Entre com um usuario válido!">
                     {{ form.username(class="form-control input100", placeholder="Usuário") }}
                     <span class=""></span>
                     <span class="">
@@ -41,35 +39,8 @@
                         Criar conta!
                     </button>
                 </div>
-
             </form>
         </div>
     </div>
-
 </div>
-
-<!-- <div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="container">
-
-                <form class="login100-form validate-form" method="POST">
-                    {{ form.hidden_tag() }}
-                    <h2>Cadastrar</h2>
-                    <div class="">
-                        {{ form.username.label }} {{ form.username(class="form-control") }}
-                    </div>
-                    <div class="form-group">
-                        {{ form.password.label }} {{ form.password(class="form-control") }}
-                    </div>
-                    <div class="form-group">
-                        {{ form.confirm_password.label }} {{ form.confirm_password(class="form-control") }}
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 {% endblock %}

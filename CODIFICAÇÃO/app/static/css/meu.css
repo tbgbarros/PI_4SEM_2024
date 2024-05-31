@@ -386,3 +386,40 @@ button:hover {
 }
 
 .thCor {}
+
+
+.navbar-container {
+    position: relative;
+    z-index: 2;
+}
+
+#contador {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+#bloqueio {
+    position: fixed;
+    top: 50px;
+    /* Ajuste se necessário para não sobrepor a navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    /* Ajuste a altura de acordo com a altura da navbar */
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#bloqueio h1 {
+    margin: 0;
+}

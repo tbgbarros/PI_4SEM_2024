@@ -46,3 +46,16 @@ def create_app():
     app.register_blueprint(questionario_controller.bp)
 
     return app
+
+
+def init_db(app):
+    with app.app_context():
+        from .models.user import User
+
+        db.create_all()
+
+
+# Fora do create_app(), chame init_db()
+if __name__ == "__main__":
+    app = create_app()
+    init_db(app)
