@@ -36,42 +36,40 @@ def test_signup(client, test_app):
     assert response.status_code == 200
 
 
-# def test_login(client, test_app):
-#     # Testa o login com dados válidos
-#     response = client.post(
-#         "/auth/login",
-#         data={"username": "testuser", "password": "Password123"},
-#         follow_redirects=True,
-#     )
-#     assert response.status_code == 200
+def test_login(client, test_app):
+    # Testa o login com dados válidos
+    response = client.post(
+        "/auth/login",
+        data={"username": "testuser", "password": "Password123"},
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
 
-#     # Verifica se o usuário foi redirecionado para a página principal
-#     assert b"principal" in response.data
+    # Verifica se o usuário foi redirecionado para a página principal
+    assert b"principal" in response.data
 
-#     # Testa o login com dados inválidos
-#     response_invalid = client.post(
-#         "/auth/login",
-#         data={"username": "testuser", "password": "WrongPassword"},
-#         follow_redirects=True,
-#     )
-#     assert response_invalid.status_code == 200
-
-#     # Verifica se uma mensagem de erro é exibida na página de login
-#     assert b"Usuario ou senha invalida!" in response_invalid.data
+    # Testa o login com dados inválidos
+    response_invalid = client.post(
+        "/auth/login",
+        data={"username": "testuser", "password": "WrongPassword"},
+        follow_redirects=True,
+    )
+    assert response_invalid.status_code == 200
 
 
-# def test_logout(client):
-#     # Realiza o login para poder testar o logout
-#     client.post(
-#         "/auth/login",
-#         data={"username": "testuser", "password": "Password123"},
-#         follow_redirects=True,
-#     )
+def test_logout(client):
+    # Realiza o login para poder testar o logout
+    client.post(
+        "/auth/login",
+        data={"username": "testuser", "password": "Password123"},
+        follow_redirects=True,
+    )
 
-#     # Testa o logout
-#     response = client.get("/auth/logout", follow_redirects=True)
-#     assert response.status_code == 200
-#     assert (
-#         b"Home" in response.data
-#     )  # Verifica se o usuário foi redirecionado para a página inicial
-#     assert "username" not in session  # Verifica se a sessão do usuário foi limpa
+    # Testa o logout
+    response = client.get("/auth/logout", follow_redirects=True)
+    assert response.status_code == 200
+
+    # assert "username" not in session
+    # Verifica se a sessão do usuário foi limpa
+    with client.session_transaction() as session:
+        assert "username" not in session
