@@ -37,9 +37,3 @@ def usuario():
 @verificar_autenticacao
 def rank():
     return render_template("main/rank.html")
-
-
-@bp.route("/logout")
-def logout():
-    session.pop("username", None)
-    return redirect(url_for("main.index"))
