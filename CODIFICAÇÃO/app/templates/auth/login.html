@@ -12,16 +12,21 @@
             </div>
             <div>
                 <h4 class="text-center mb-4">Faça seu Login, venha para o Clan!</h4>
-                <div class="entrarMensagens text-center">
+                <div class="entrarMensagens text-center debug-messages">
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
-                    <ul>
+                    <ul class="flashes">
                         {% for message in messages %}
                         <li>{{ message }}</li>
                         {% endfor %}
                     </ul>
                     {% endif %}
                     {% endwith %}
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <!-- FORMULARIO FORM -->

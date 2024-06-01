@@ -3,6 +3,7 @@ from flask import url_for, session
 from app import create_app, db
 from app.models.user import User
 from app.forms import SignupForm, LoginForm
+from bs4 import BeautifulSoup
 
 
 @pytest.fixture(scope="module")
@@ -36,29 +37,14 @@ def test_signup(client, test_app):
     assert response.status_code == 200
 
 
-# def test_login(client, test_app):
-#     # Testa o login com dados válidos
-#     response = client.post(
-#         "/auth/login",
-#         data={"username": "testuser", "password": "Password123"},
-#         follow_redirects=True,
-#     )
-#     assert response.status_code == 200
-
-#     # Verifica se o usuário foi redirecionado para a página principal
-#     assert b"principal" in response.data
-
-
-# teste login com dados invalidos
-# def test_login_invalid(client, test_app):
-#     response = client.post(
-#         "/auth/login",
-#         data={"username": "testuser", "password": "WrongPassword"},
-#         follow_redirects=True,
-#     )
-#     assert response.status_code == 200
-#     print(response.data)
-#     assert b"Invalid username or password" in response.data
+def test_login(client, test_app):
+    # Testa o login com dados válidos
+    response = client.post(
+        "/auth/login",
+        data={"username": "testuser", "password": "Password123"},
+        follow_redirects=True,
+    )
+    assert response.status_code == 200
 
 
 def test_logout(client):

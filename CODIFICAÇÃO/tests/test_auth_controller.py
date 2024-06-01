@@ -65,28 +65,3 @@ def teste_criacao_usuario_falhou(client, init_database):
             follow_redirects=True,
         )
         assert response.status_code == 200
-
-
-@pytest.fixture(scope="function")
-def novo_usuario():
-    user = User(username="testuser", password="Password123")
-    return user
-
-
-# def test_set_password(novo_usuario):
-#     assert novo_usuario.password_encrypted is not None
-#     assert novo_usuario.hash is not None
-
-
-# def teste_checar_senha(novo_usuario):
-#     assert novo_usuario.check_password("Password123") is True
-#     assert novo_usuario.check_password("WrongPassword") is False
-
-
-# def teste_criar_usuario_novo(rodando_app, init_database, novo_usuario):
-#     with rodando_app.app_context():
-#         db.session.add(novo_usuario)
-#         db.session.commit()
-#         user = User.query.filter_by(username="testuser").first()
-#         assert user is not None
-#         assert user.username == "testuser"

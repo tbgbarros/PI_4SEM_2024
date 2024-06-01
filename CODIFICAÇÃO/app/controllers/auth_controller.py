@@ -1,4 +1,12 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, session
+from flask import (
+    Blueprint,
+    render_template,
+    redirect,
+    url_for,
+    flash,
+    session,
+    current_app,
+)
 from app.forms import SignupForm, LoginForm
 from app.models.user import User
 from app import db
@@ -20,6 +28,27 @@ def signup():
     return render_template("auth/signup.html", form=form)
 
 
+# @bp.route("/login", methods=["GET", "POST"])
+# def login():
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         user = User.query.filter_by(username=form.username.data).first()
+#         if user is None or not user.check_password(form.password.data):
+#             flash(
+#                 "Invalid username or password"
+#             )  # Adiciona a mensagem de erro às mensagens flash
+#             print(
+#                 "Mensagem de erro adicionada às mensagens flash com sucesso!"
+#             )  # Print para verificar no console
+#             return redirect(url_for("auth.login"))
+
+#         emblema_url = get_emblema_url(user.pontos)
+#         session["username"] = form.username.data
+#         session["emblema_url"] = emblema_url
+#         return redirect(url_for("main.principal"))
+#     return render_template("auth/login.html", title="Sign In", form=form)
+
+
 @bp.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
@@ -27,7 +56,12 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash("Invalid username or password")
-            return redirect(url_for("auth.login"))
+            return render_template(
+                "auth/login.html",
+                title="Sign In",
+                form=form,
+                error="Invalid username or password",
+            )
 
         emblema_url = get_emblema_url(user.pontos)
         session["username"] = form.username.data
