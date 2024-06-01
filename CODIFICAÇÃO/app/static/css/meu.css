@@ -297,7 +297,7 @@ button:hover {
 
 .imgRank {
     border-radius: 10px;
-    width: 30px;
+    width: 60px;
 }
 
 .container1 {
@@ -422,4 +422,22 @@ button:hover {
 
 #bloqueio h1 {
     margin: 0;
+}
+
+.user-info {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    /* Ajusta a posição vertical para descer o contêiner */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f0f0f0;
+    /* Cor de fundo cinza */
+    /* padding: 10px; */
+    border: 5px solid #00ff55;
+    border-radius: 50px;
+    z-index: 1000;
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
 }
