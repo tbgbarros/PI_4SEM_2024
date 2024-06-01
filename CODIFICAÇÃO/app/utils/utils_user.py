@@ -49,7 +49,7 @@ def get_emblema_url(pontos):
         return url_for("static", filename="images/rank/22.png")
     elif pontos < 161100:
         return url_for("static", filename="images/rank/23.png")
-    elif pontos < 191100:
+    elif pontos < 251100:
         return url_for("static", filename="images/rank/24.png")
     # Adicione mais condições conforme necessário para definir os emblemas com base nos pontos
     else:

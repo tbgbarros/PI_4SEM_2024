@@ -1,182 +1,102 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Sign Up{% endblock %}
 
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" />
-    <!--===============================================================================================-->
-
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
-    <!-- <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet"> -->
-
-
-    <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/meu.css') }}">
-
-    <title>Hackers School</title>
-    <title>{% block title %}{% endblock %}</title>
-</head>
-
-<body>
-    <div class=""></div>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="nav navbar-nav">
-                <img class="imgLogo" src="{{ url_for('static', filename='images/icons/icone1.png')}}" alt="logo">
-            </div>
-
-            <div class="navbar-nav logotipo">
-                <a class="navbar-brand" href="#">Hackers School</a>
-
-            </div>
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a class="nav-link active text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.index') }}">Home</a>
-                </li>
-                <li><a class="nav-link active text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('auth.login') }}">Login</a></li>
-                <li> <a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('auth.signup') }}">Cadastro</a></li>
-
-            </ul>
-            {% if 'username' in session %}
-            <ul class="nav navbar-nav navbar-right">
-
-                <li><a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.usuario') }}">Perfil</a></li>
-                <li> <a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('main.rank') }}">Rank</a>
-                </li>
-                <li><a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.principal') }}">Quiz</a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('main.rank') }}">
-                        <span class="btn">
-                            <img class="imgRank" src="{{ session['emblema_url'] }}" alt="Emblema do usuário">
-                        </span>
-                        <span>Usuário: {{ session['username'] }}</span>
-                    </a>
-                </li>
-                {% endif %}
-                <li>
-                    <a class="nav-link text-white btn" href="{{ url_for('auth.logout') }}">
-                        <span class="glyphicon glyphicon-log-in"></span>
-                        Sair
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/rank.css') }}">
-    <div class="text-center mb-4">
-        <h1 class="">Rank dos dos maiores ganhadores</h1>
-    </div>
-    <div class="container mt-4">
-        <div class="row justify-content-center mt-4 ">
-            <!-- Primeiro colocado -->
-            <div class="col-lg-4">
-                <div class="card first-place">
-                    <div class="card-body">
-                        <div class="ranks">
-                            <h3 class="mb-0">Thiago Barros Gomes</h3>
-                            <img class="imgRankMaster" src="{{ url_for('static', filename='images/rank/24.png')}}"
-                                alt="rank master" title="Rank Master">
-                        </div>
-                        <h5 class="card-title">Thiago Barros Gomes</h5>
-                        <p class="card-text">Pontos 230</p>
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/rank.css') }}">
+<div class="text-center mb-4">
+    <h1 class="">Rank dos dos maiores ganhadores</h1>
+</div>
+<div class="container mt-4">
+    <div class="row justify-content-center mt-4 ">
+        <!-- Primeiro colocado -->
+        <div class="col-lg-4">
+            <div class="card first-place">
+                <div class="card-body">
+                    <div class="ranks">
+                        <h3 class="mb-0">Thiago Barros Gomes</h3>
+                        <img class="imgRankMaster" src="{{ url_for('static', filename='images/rank/24.png')}}"
+                            alt="rank master" title="Rank Master">
                     </div>
-                </div>
-            </div>
-            <!-- Segundo colocado -->
-            <div class="col-lg-4">
-                <div class="card second-place">
-                    <div class="card-body">
-                        <div class="ranks">
-                            <h3 class="mb-0">Pedro Otavio</h3>
-                            <img class="imgRankSecond" src="{{ url_for('static', filename='images/rank/23.png')}}"
-                                alt="rank master" title="Rank Master">
-                        </div>
-                        <h5 class="card-title">Thiago Barros Gomes</h5>
-                        <p class="card-text">Pontos 225</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Terceiro colocado -->
-            <div class="col-lg-4">
-                <div class="card third-place">
-                    <div class="card-body">
-                        <div class="ranks">
-                            <h3 class="mb-0">Guilherme Afonso</h3>
-                            <img class="imgRankTirth" src="{{ url_for('static', filename='images/rank/22.png')}}"
-                                alt="rank master" title="Rank Master">
-                        </div>
-                        <p class="card-text">Pontos 200</p>
-                    </div>
+                    <h5 class="card-title">Thiago Barros Gomes</h5>
+                    <p class="card-text">Pontos 230</p>
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
-            <!-- Quarto colocado -->
-            <div class="col-lg-3">
-                <div class="card other-place">
-                    <div class="card-body">
-                        <h5 class="card-title">Quarto Colocado</h5>
-                        <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/21.png')}}"
+        <!-- Segundo colocado -->
+        <div class="col-lg-4">
+            <div class="card second-place">
+                <div class="card-body">
+                    <div class="ranks">
+                        <h3 class="mb-0">Pedro Otavio</h3>
+                        <img class="imgRankSecond" src="{{ url_for('static', filename='images/rank/23.png')}}"
                             alt="rank master" title="Rank Master">
-                        <p class="card-text">Pontos 188</p>
                     </div>
+                    <h5 class="card-title">Thiago Barros Gomes</h5>
+                    <p class="card-text">Pontos 225</p>
                 </div>
             </div>
-            <!-- Quinto colocado -->
-
-            <div class="col-lg-3">
-                <div class="card other-place">
-                    <div class="card-body">
-                        <h5 class="card-title">Quarto Colocado</h5>
-                        <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/20.png')}}"
+        </div>
+        <!-- Terceiro colocado -->
+        <div class="col-lg-4">
+            <div class="card third-place">
+                <div class="card-body">
+                    <div class="ranks">
+                        <h3 class="mb-0">Guilherme Afonso</h3>
+                        <img class="imgRankTirth" src="{{ url_for('static', filename='images/rank/22.png')}}"
                             alt="rank master" title="Rank Master">
-                        <p class="card-text">Pontos 188</p>
                     </div>
-                </div>
-            </div>
-            <!-- Sexto colocado -->
-            <div class="col-lg-3">
-                <div class="card other-place">
-                    <div class="card-body">
-                        <h5 class="card-title">Quarto Colocado</h5>
-                        <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/19.png')}}"
-                            alt="rank master" title="Rank Master">
-                        <p class="card-text">Pontos 188</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Sétimo colocado -->
-            <div class="col-lg-3">
-                <div class="card other-place">
-                    <div class="card-body">
-                        <h5 class="card-title">Quarto Colocado</h5>
-                        <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/18.png')}}"
-                            alt="rank master" title="Rank Master">
-                        <p class="card-text">Pontos 188</p>
-                    </div>
+                    <p class="card-text">Pontos 200</p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row mt-4">
+        <!-- Quarto colocado -->
+        <div class="col-lg-3">
+            <div class="card other-place">
+                <div class="card-body">
+                    <h5 class="card-title">Quarto Colocado</h5>
+                    <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/21.png')}}"
+                        alt="rank master" title="Rank Master">
+                    <p class="card-text">Pontos 188</p>
+                </div>
+            </div>
+        </div>
+        <!-- Quinto colocado -->
+
+        <div class="col-lg-3">
+            <div class="card other-place">
+                <div class="card-body">
+                    <h5 class="card-title">Quarto Colocado</h5>
+                    <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/20.png')}}"
+                        alt="rank master" title="Rank Master">
+                    <p class="card-text">Pontos 188</p>
+                </div>
+            </div>
+        </div>
+        <!-- Sexto colocado -->
+        <div class="col-lg-3">
+            <div class="card other-place">
+                <div class="card-body">
+                    <h5 class="card-title">Quarto Colocado</h5>
+                    <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/19.png')}}"
+                        alt="rank master" title="Rank Master">
+                    <p class="card-text">Pontos 188</p>
+                </div>
+            </div>
+        </div>
+        <!-- Sétimo colocado -->
+        <div class="col-lg-3">
+            <div class="card other-place">
+                <div class="card-body">
+                    <h5 class="card-title">Quarto Colocado</h5>
+                    <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/18.png')}}"
+                        alt="rank master" title="Rank Master">
+                    <p class="card-text">Pontos 188</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,132 +1,59 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}Sign Up{% endblock %}
 
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" />
-    <!--===============================================================================================-->
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/user.css') }}">
 
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}">
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
-    <!-- <link href="{{ url_for('static', filename='/css/bootstrap.css') }}" rel="stylesheet"> -->
+<div class=" container1 mt-5">
+    <h1 class="mb-4">Questionário</h1>
 
 
-    <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/meu.css') }}">
 
-    <title>Hackers School</title>
-</head>
+    <hr>
+    <form action="{{ url_for('quest.processar_respostas') }}" method="post">
+        {% for pergunta, opcoes in perguntas %}
+        <div class="pergunta mb-3">
 
-<body onload="startTimer();">
-    <div class=""></div>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="nav navbar-nav">
-                <img class="imgLogo" src="{{ url_for('static', filename='images/icons/icone1.png')}}" alt="logo">
+            <h4><strong>{{ pergunta }}</strong></h4>
+
+            {% for opcao in opcoes %}
+            <div class="form-check alternativa forcarBold">
+                <input class="form-check-input" type="radio" id="{{ opcao }}" name="{{ pergunta }}" value="{{ opcao }}">
+                <label class="form-check-label forcarBold" for="{{ opcao }}">{{ opcao }}</label>
             </div>
-
-            <div class="navbar-nav logotipo">
-                <a class="navbar-brand" href="#">Hackers School</a>
-
-            </div>
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a class="nav-link active text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.index') }}">Home</a>
-                </li>
-                <li><a class="nav-link active text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('auth.login') }}">Login</a></li>
-                <li> <a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('auth.signup') }}">Cadastro</a></li>
-                <li><a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.usuario') }}">Perfil</a></li>
-                <li> <a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('main.rank') }}">Rank</a>
-                </li>
-                <li><a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.principal') }}">Quiz</a>
-                </li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {% if 'username' in session %}
-                <li>
-                    <a href="{{ url_for('main.rank') }}">
-                        <span class="btn">
-                            <img class="imgRank" src="{{ session['emblema_url'] }}" alt="Emblema do usuário">
-                        </span>
-                        <span>Usuário: {{ session['username'] }}</span>
-                    </a>
-                </li>
-                {% endif %}
-                <li><a class="nav-link text-white btn" href="{{ url_for('auth.logout') }}"><span
-                            class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-
-
-
-            </ul>
-        </div>
-    </nav>
-    <div class=" container1 mt-5">
-        <h1 class="mb-4">Questionário</h1>
-
-
-
-        <hr>
-        <form action="{{ url_for('quest.processar_respostas') }}" method="post">
-            {% for pergunta, opcoes in perguntas %}
-            <div class="pergunta mb-3">
-
-                <h4><strong>{{ pergunta }}</strong></h4>
-
-                {% for opcao in opcoes %}
-                <div class="form-check alternativa forcarBold">
-                    <input class="form-check-input" type="radio" id="{{ opcao }}" name="{{ pergunta }}"
-                        value="{{ opcao }}">
-                    <label class="form-check-label forcarBold" for="{{ opcao }}">{{ opcao }}</label>
-                </div>
-                {% endfor %}
-            </div>
-            {% if not loop.last %}
-            <hr>
-            {% endif %}
             {% endfor %}
+        </div>
+        {% if not loop.last %}
+        <hr>
+        {% endif %}
+        {% endfor %}
 
-            <button type="submit" class="btn btn-primary">Enviar Respostas</button>
-        </form>
-    </div>
-    <h1 class="mb-4">
-        <div id="contador">60</div>
-    </h1>
+        <button type="submit" class="btn btn-primary">Enviar Respostas</button>
+    </form>
+</div>
+<h1 class="mb-4">
+    <div id="contador">60</div>
+</h1>
 
-    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendor/tilt/tilt.jquery.min.js') }}"></script>
-    <!-- <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script> -->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/select2/select2.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/tilt/tilt.jquery.min.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script> -->
 
-    <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
-    <!--===============================================================================================-->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/meu.js') }}"></script>
+<script>
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<!--===============================================================================================-->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/meu.js') }}"></script>
 
 </body>
 
 </html>
+
+{% endblock %}
