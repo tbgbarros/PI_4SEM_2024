@@ -53,6 +53,11 @@ jobs:
         echo "Waiting for Flask to start..."
         sleep 10
 
+    - name: Run tests and measure coverage
+      run: |
+        coverage run -m pytest
+        coverage report
+
     - name: Test Flask application
       run: |
         curl --fail http://127.0.0.1:5000 || (echo "Flask application did not start correctly" && exit 1)
