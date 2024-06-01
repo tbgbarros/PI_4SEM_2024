@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, flash, session
 from app.forms import SignupForm, LoginForm
 from app.models.user import User
 from app import db
+from app.utils.utils_user import get_emblema_url
 
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -25,9 +26,12 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash("Usuario ou senha invalida!")
+            flash("Invalid username or password")
             return redirect(url_for("auth.login"))
+
+        emblema_url = get_emblema_url(user.pontos)
         session["username"] = form.username.data
+        session["emblema_url"] = emblema_url
         return redirect(url_for("main.principal"))
     return render_template("auth/login.html", title="Sign In", form=form)
 

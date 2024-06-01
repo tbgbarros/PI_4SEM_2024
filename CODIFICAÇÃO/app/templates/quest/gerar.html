@@ -60,10 +60,16 @@
                 </li>
 
             </ul>
-            <ul class="nav navbar-nav navbar-right"> {% if 'username' in session %}
-                <li><a href="{{ url_for('main.rank') }}"><span class="btn"></span>
-                        <img class="imgRank" src="{{ url_for('static', filename='images/rank/24.png')}}" alt="rank24">
-                        <span>Usuário: {{ session['username'] }}</span></a></li>
+            <ul class="nav navbar-nav navbar-right">
+                {% if 'username' in session %}
+                <li>
+                    <a href="{{ url_for('main.rank') }}">
+                        <span class="btn">
+                            <img class="imgRank" src="{{ session['emblema_url'] }}" alt="Emblema do usuário">
+                        </span>
+                        <span>Usuário: {{ session['username'] }}</span>
+                    </a>
+                </li>
                 {% endif %}
                 <li><a class="nav-link text-white btn" href="{{ url_for('auth.logout') }}"><span
                             class="glyphicon glyphicon-log-in"></span> Sair</a></li>
