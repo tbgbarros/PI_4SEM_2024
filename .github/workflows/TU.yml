@@ -1,0 +1,30 @@
+name: Test and Coverage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        working-directory: CODIFICAÇÃO
+        run: |
+          pip install -r requirements.txt
+      # - name: Install dependencies
+      #   run: pip install pytest coverage SQLAlchemy
+
+      - name: Run tests and measure coverage
+        run: |
+          coverage run -m pytest
+          coverage report
