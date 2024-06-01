@@ -30,8 +30,17 @@ def inicializarDatabase(teste_rodando):
 
 @pytest.fixture(scope="function")
 def novo_usuario():
-    user = User(username="testuser", password="Password123")
-    return user
+    return User(username="testuser", password="Password123")
+
+
+def teste_usuario_criacao(teste_rodando, inicializarDatabase, novo_usuario):
+    with teste_rodando.app_context():
+        db.session.add(novo_usuario)
+        db.session.commit()
+        user = User.query.filter_by(username="testuser").first()
+        assert user is not None
+        assert user.username == "testuser"
+        assert user.check_password("Password123")
 
 
 # def teste_setar_novo_usuario(novo_usuario):
@@ -42,12 +51,3 @@ def novo_usuario():
 # def teste_checar_senha(novo_usuario):
 #     assert novo_usuario.check_password("Password123") is True
 #     assert novo_usuario.check_password("WrongPassword") is False
-
-
-# def teste_usuario_criacao(teste_rodando, inicializarDatabase, novo_usuario):
-#     with teste_rodando.app_context():
-#         db.session.add(novo_usuario)
-#         db.session.commit()
-#         user = User.query.filter_by(username="testuser").first()
-#         assert user is not None
-#         assert user.username == "testuser"

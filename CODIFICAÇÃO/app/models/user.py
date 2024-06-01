@@ -12,17 +12,20 @@ class User(db.Model):
     hash = db.Column(db.String(64), nullable=False)
     pontos = db.Column(db.Integer, default=0)
 
-    def init(self, username, password):
+    def __init__(self, username):
         self.username = username
-        self.set_password(password)
+
+    @classmethod
+    def create(cls, username, password):
+        user = cls(username=username)
+        user.set_password(password)
+        return user
 
     def set_password(self, password):
         key = Fernet.generate_key()
         cipher_suite = Fernet(key)
         self.password_encrypted = cipher_suite.encrypt(password.encode())
-        self.hash = base64.urlsafe_b64encode(
-            key
-        ).decode()  # Store the key as a base64 encoded string
+        self.hash = base64.urlsafe_b64encode(key).decode()
 
     def check_password(self, password):
         try:
@@ -31,7 +34,6 @@ class User(db.Model):
             decrypted_password = cipher_suite.decrypt(self.password_encrypted).decode()
             return password == decrypted_password
         except (binascii.Error, ValueError):
-            # Tratar exceções relacionadas à decodificação de base64 ou chave inválida
             return False
 
     def atualizar_pontos(self, pontos):

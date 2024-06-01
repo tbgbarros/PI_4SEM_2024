@@ -12,12 +12,12 @@ bp = Blueprint("auth", __name__, url_prefix="/auth")
 def signup():
     form = SignupForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, password=form.password.data)
+        user = User.create(username=form.username.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash("Cadastrado, agora voce pode entrar para o Clã!")
+        flash("Cadastro realizado com sucesso!", "success")
         return redirect(url_for("auth.login"))
-    return render_template("auth/signup.html", title="Sign Up", form=form)
+    return render_template("auth/signup.html", form=form)
 
 
 @bp.route("/login", methods=["GET", "POST"])
