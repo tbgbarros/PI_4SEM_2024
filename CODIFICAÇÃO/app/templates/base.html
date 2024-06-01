@@ -55,20 +55,32 @@
 
             <ul class="nav navbar-nav">
                 <li class="active"><a class="nav-link active text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.index') }}">Home</a>
+                        href="{{ url_for('main.index') }}">
+                        Home
+                    </a>
                 </li>
-                <li><a class="nav-link active text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('auth.login') }}">Login</a></li>
-                <li> <a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('auth.signup') }}">Cadastro</a></li>
-                <li><a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.usuario') }}">Perfil</a></li>
-                <li> <a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('main.rank') }}">Rank</a>
+                <li><a class="nav-link active text-white btn btn-secondary btn-lg" href="{{ url_for('auth.login') }}">
+                        Login
+                    </a>
                 </li>
-                <li><a class="nav-link text-white btn btn-secondary btn-lg"
-                        href="{{ url_for('main.principal') }}">Quiz</a>
+                <li> <a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('auth.signup') }}">
+                        Cadastro
+                    </a>
                 </li>
-
+                {% if 'username' in session %}
+                <li><a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('main.usuario') }}">
+                        Perfil
+                    </a>
+                </li>
+                <li> <a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('main.rank') }}">
+                        Rank
+                    </a>
+                </li>
+                <li><a class="nav-link text-white btn btn-secondary btn-lg" href="{{ url_for('main.principal') }}">
+                        Quiz
+                    </a>
+                </li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!-- {% if 'username' in session %}

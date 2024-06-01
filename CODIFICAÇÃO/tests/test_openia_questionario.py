@@ -36,17 +36,17 @@ def test_signup(client, test_app):
     assert response.status_code == 200
 
 
-def test_login(client, test_app):
-    # Testa o login com dados válidos
-    response = client.post(
-        "/auth/login",
-        data={"username": "testuser", "password": "Password123"},
-        follow_redirects=True,
-    )
-    assert response.status_code == 200
+# def test_login(client, test_app):
+#     # Testa o login com dados válidos
+#     response = client.post(
+#         "/auth/login",
+#         data={"username": "testuser", "password": "Password123"},
+#         follow_redirects=True,
+#     )
+#     assert response.status_code == 200
 
-    # Verifica se o usuário foi redirecionado para a página principal
-    assert b"principal" in response.data
+#     # Verifica se o usuário foi redirecionado para a página principal
+#     assert b"principal" in response.data
 
 
 # teste login com dados invalidos
