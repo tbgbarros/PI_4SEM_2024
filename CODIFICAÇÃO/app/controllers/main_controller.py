@@ -9,7 +9,7 @@ def verificar_autenticacao(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "username" not in session or session.get("username") is None:
-            flash("Você precisa fazer login para acessar esta página.", "warning")
+            flash("Voce precisa fazer login para acessar esta pagina.", "warning")
             return redirect(url_for("auth.login"))
         return f(*args, **kwargs)
 
