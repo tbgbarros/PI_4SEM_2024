@@ -3,7 +3,6 @@ from flask import url_for, session
 from app import create_app, db
 from app.models.user import User
 from app.forms import SignupForm, LoginForm
-from bs4 import BeautifulSoup
 
 
 @pytest.fixture(scope="module")
