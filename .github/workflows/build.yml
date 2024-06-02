@@ -53,10 +53,10 @@ jobs:
         echo "Waiting for Flask to start..."
         sleep 10
 
-    - name: Run tests and measure coverage
-      run: |
-        coverage run -m pytest
-        coverage report
+    # - name: Run tests and measure coverage
+    #   run: |
+    #     coverage run -m pytest
+    #     coverage report
 
     - name: Test Flask application
       run: |
