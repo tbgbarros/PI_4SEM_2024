@@ -54,10 +54,10 @@ jobs:
         echo "Waiting for Flask to start..."  # Mensagem de espera
         sleep 10  # Esperar 10 segundos para garantir que a aplicação Flask esteja pronta
 
-    # - name: Run tests and measure coverage
-    #   run: |
-    #     coverage run -m pytest
-    #     coverage report
+    - name: Run tests and measure coverage
+      run: |
+        coverage run -m pytest
+        coverage report
     # Descomente as linhas acima para executar testes e medir a cobertura de código
 
     - name: Test Flask application  # Passo para testar a aplicação Flask
