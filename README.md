@@ -38,6 +38,7 @@ Em caso de dúvidas ou sugestões, entre em contato com a equipe do projeto.
 Divirta-se explorando a rede social e compartilhando conhecimento! 🚀🔐
 
 ## Coverage TU
+![coverage](https://github.com/tbgbarros/PI_4SEM_2024/assets/111811766/167cd3ec-3d88-416d-8dcc-2bca92134bcf)
 
 
 ## Requisitos para funcionamento do projeto
