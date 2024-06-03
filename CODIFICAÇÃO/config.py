@@ -14,7 +14,9 @@ import os
 
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "your_secret_key")
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:@localhost/mamaco"
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL", "mysql+pymysql://root:mamaco@localhost/mamaco"
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     STATIC_URL = "/static/"
     STATICFILES_DIRS = [os.path.abspath("app/static")]
