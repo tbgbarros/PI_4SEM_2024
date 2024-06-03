@@ -20,3 +20,15 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     STATIC_URL = "/static/"
     STATICFILES_DIRS = [os.path.abspath("app/static")]
+
+
+class ProductionConfig(Config):
+    # Configurações para ambiente de produção no GitHub
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
+
+# Seleciona a configuração apropriada com base no ambiente
+if os.environ.get("ENV") == "production":
+    current_config = ProductionConfig
+else:
+    current_config = Config
