@@ -8,6 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest  # O job será executado em um contêiner com a última versão do Ubuntu
+    env:
+      CHATGPT_API_KEY: ${{ secrets.CHATGPT_API_KEY }}
+      DATABASE_URL: mysql+pymysql://root:${{ secrets.DB_PASSWORD }}@127.0.0.1:3306/testdb
+
     services:
       mysql:
         image: mysql:5.7  # Usar a imagem do MySQL versão 5.7
