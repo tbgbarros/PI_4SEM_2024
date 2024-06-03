@@ -37,6 +37,9 @@ Em caso de dúvidas ou sugestões, entre em contato com a equipe do projeto.
 
 Divirta-se explorando a rede social e compartilhando conhecimento! 🚀🔐
 
+## Coverage TU
+
+
 ## Requisitos para funcionamento do projeto
 
 - 1º Baixar o repositório do github: Entre em uma pasta no seu sistema local, entre no cmd e coloque o seguinte comando git clone https://github.com/tbgbarros/PI_4SEM_2024.git

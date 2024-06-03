@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
+<!-- Estende o template base.html -->
 
 {% block title %}Login{% endblock %}
+<!-- Define o bloco de título da página como "Login" -->
 
 {% block content %}
+<!-- Início do bloco de conteúdo -->
 
 <div class="bodyLogin text-center">
+    <!-- Div principal com classes de estilo para centralizar o conteúdo -->
     <div class="screen-1">
+        <!-- Div para estilizar a tela de login -->
         <div class="">
             <div>
+                <!-- Exibe a logo -->
                 <img class="alter" src="{{ url_for('static', filename='images/hackers5-2.png') }}" alt="LOGO">
             </div>
             <div>
+                <!-- Mensagem de boas-vindas -->
                 <h4 class="text-center mb-4">Faça seu Login, venha para o Clan!</h4>
                 <div class="entrarMensagens text-center debug-messages">
+                    <!-- Div para exibir mensagens de flash (sucesso, erro, etc.) -->
                     {% with messages = get_flashed_messages() %}
                     {% if messages %}
                     <ul class="flashes">
+                        <!-- Lista de mensagens flash -->
                         {% for message in messages %}
                         <li>{{ message }}</li>
                         {% endfor %}
@@ -23,6 +32,7 @@
                     {% endif %}
                     {% endwith %}
                     {% if error %}
+                    <!-- Div para exibir mensagens de erro -->
                     <div class="alert alert-danger" role="alert">
                         {{ error }}
                     </div>
@@ -30,9 +40,12 @@
                 </div>
             </div>
             <!-- FORMULARIO FORM -->
+            <!-- Formulário de login -->
             <form class="validate-form" method="POST" action="{{ url_for('auth.login') }}">
                 {{ form.hidden_tag() }}
+                <!-- Campo oculto para CSRF token -->
                 <div class="" data-validate="Entre com um usuário válido!">
+                    <!-- Campo de entrada para o nome de usuário -->
                     {{ form.username(class="form-control input100", placeholder="Usuário") }}
                     <span class=""></span>
                     <span class="">
@@ -41,6 +54,7 @@
                 </div>
 
                 <div class="" data-validate="Password is required">
+                    <!-- Campo de entrada para a senha -->
                     {{ form.password(class="form-control input100", placeholder="Senha") }}
                     <span class=""></span>
                     <span class="">
@@ -48,14 +62,15 @@
                     </span>
                 </div>
                 <div class="row d-flex justify-content-center align-content-center">
+                    <!-- Botão de submissão do formulário -->
                     <button class="btn btn-success btn-lg" type="submit">
                         Fazer login!
                     </button>
                 </div>
                 <div class="text-center p-t-12">
+                    <!-- Opção "Lembrar-me" e link para recuperação de senha -->
                     <span class="txt1">
                         <a>{{ form.remember_me() }} Lembrar-me</a>
-
                     </span><br>
                     <a class="txt2" href="#">
                         Esqueceu seu Usuário / Senha?
@@ -63,6 +78,7 @@
                 </div>
 
                 <div class="text-center p-t-10">
+                    <!-- Link para criar uma nova conta -->
                     <a class="txt2" href="{{ url_for('auth.signup') }}">
                         Crie sua conta!
                         <i class="fa fa-long-arrow-right m-l-5"></i>
@@ -73,3 +89,4 @@
     </div>
 </div>
 {% endblock %}
+<!-- Fim do bloco de conteúdo -->

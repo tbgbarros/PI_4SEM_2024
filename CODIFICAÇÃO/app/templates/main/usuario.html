@@ -1,24 +1,39 @@
 {% extends 'base.html' %}
+<!-- Estende o template base.html, reutilizando sua estrutura básica -->
 
 {% block title %}Login{% endblock %}
+<!-- Define o título da página como "Login" -->
 
 {% block content %}
+<!-- Início do bloco de conteúdo -->
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/user.css') }}">
+<!-- Importa o arquivo CSS específico para esta página -->
 
 <div class="container mt-4">
+    <!-- Contêiner principal com margem superior -->
     <div class="card p-4">
+        <!-- Card com preenchimento interno de 4 -->
         <div class="mt-5 text-center">
+            <!-- Margem superior grande e texto centralizado -->
             <h2 class="mb-0">Thiago Barros Gomes</h2>
+            <!-- Título do usuário -->
             <span class="text-muted d-block mb-2">Araras</span>
+            <!-- Localização do usuário -->
 
             <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                <!-- Divisão flexível com espaçamento e alinhamento -->
                 <div class="stats">
+                    <!-- Div para estatísticas -->
                     <h6 class="mb-0">Pontos</h6>
+                    <!-- Título das estatísticas -->
                     <span class="">230</span>
+                    <!-- Pontuação do usuário -->
                 </div>
                 <div class="ranks">
+                    <!-- Div para exibição de ranks adquiridos -->
                     <h3 class="mb-0">Ranks Adquiridos!</h3>
+                    <!-- Título dos ranks adquiridos -->
                     <img src="{{ url_for('static', filename='images/rank/1.png')}}" alt="rank master"
                         title="Rank Master">
                     <img src="{{ url_for('static', filename='images/rank/2.png')}}" alt="rank master"
@@ -68,14 +83,16 @@
                     <img src="{{ url_for('static', filename='images/rank/24.png')}}" alt="rank master"
                         title="Rank Master">
 
-                    <!-- Adicione os outros logos de rank aqui -->
                 </div>
             </div>
         </div>
         <div class="text-center">
+            <!-- Texto centralizado -->
             <button class="btn btn-primary btn-sm follow text-dark">Redes Sociais</button>
+            <!-- Botão para redes sociais -->
         </div>
     </div>
 </div>
 
 {% endblock %}
+<!-- Fim do bloco de conteúdo -->

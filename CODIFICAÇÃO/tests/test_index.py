@@ -1,21 +1,37 @@
-# tests/test_index.py
-import pytest
-from flask import Flask, render_template_string, url_for, session
-from flask.blueprints import Blueprint
-from flask_testing import TestCase
-from app import create_app, db
-from app.models.user import User
+# Importações necessárias para os testes
+import pytest  # Importa o módulo pytest para executar os testes
+from flask import (
+    Flask,
+    render_template_string,
+    url_for,
+    session,
+)  # Importa classes e funções do módulo flask
+from flask.blueprints import (
+    Blueprint,
+)  # Importa a classe Blueprint do módulo flask.blueprints
+from flask_testing import TestCase  # Importa a classe TestCase do módulo flask_testing
+from app import (
+    create_app,
+    db,
+)  # Importa a função create_app e o objeto db do módulo app
+from app.models.user import User  # Importa a classe User do módulo app.models.user
 
 
-# testes html
+# Teste para verificar se a página index é carregada corretamente
 def teste_pagina_index(client):
-    response = client.get("/")
-    assert response.status_code == 200
-    assert b'class="logoHome"' in response.data
+    response = client.get("/")  # Faz uma solicitação GET para a rota raiz
+    assert (
+        response.status_code == 200
+    )  # Verifica se a resposta é bem-sucedida (código 200)
+    assert (
+        b'class="logoHome"' in response.data
+    )  # Verifica se a classe "logoHome" está presente na resposta
 
 
+# Teste para verificar se a navbar é renderizada corretamente
 def testar_navbar_html(app):
     with app.app_context():
+        # Renderiza um HTML simulando a estrutura da navbar
         rendered_html = render_template_string(
             """
             <!DOCTYPE html>
@@ -34,4 +50,5 @@ def testar_navbar_html(app):
             </html>
             """
         )
+        # Verifica se o texto "Hackers School" está presente no HTML renderizado
         assert "Hackers School" in rendered_html

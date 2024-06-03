@@ -1,14 +1,25 @@
 <!-- app/templates/main/index.html -->
 
 {% extends 'base.html' %}
+<!-- Herda o layout da página base -->
 
-{% block title %}Página Inicial{% endblock %}
+{% block title %}
+<!-- Define o título da página -->
+Página Inicial
+{% endblock %}
 
 {% block content %}
+<!-- Início do bloco de conteúdo -->
 <h1 class="text-center mt-5 mb-5 bold">Bem-vindo à Hackers School!</h1>
 
 <div class="sombraBox">
+    <!-- Caixa com sombra -->
     <img src="{{ url_for('static', filename='images/hackers2.gif') }}" class="logoHome" alt="Logo">
+    <!-- Imagem do logo -->
 </div>
+<!-- Fim da caixa com sombra -->
+
 <!-- Adicione mais conteúdo aqui, se necessário -->
+
 {% endblock %}
+<!-- Fim do bloco de conteúdo -->

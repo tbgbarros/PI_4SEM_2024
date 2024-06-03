@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
+<!-- Estende o template base.html, reutilizando sua estrutura básica -->
 
 {% block title %}Principal{% endblock %}
+<!-- Define o bloco de título da página como "Principal" -->
 
 {% block content %}
+<!-- Início do bloco de conteúdo -->
+
 <div class="container container1 mt-5">
-    <h1 class=" text-black p-3">Escolha o tema para gerar o questionário:</h1>
-    <form action="{{ url_for('quest.gerar_questionario') }}" method="post" class="  ">
+    <!-- Contêiner principal com margem superior (mt-5) -->
+    <h1 class="text-black p-3">Escolha o tema para gerar o questionário:</h1>
+    <!-- Título da página com estilo de texto preto e padding de 3 -->
+
+    <form action="{{ url_for('quest.gerar_questionario') }}" method="post" class="">
+        <!-- Formulário que envia uma requisição POST para a rota 'quest.gerar_questionario' -->
         <div class="row"><br>
-            <div class="col-md-6 ">
+            <!-- Divisão da linha para organizar os elementos -->
+            <div class="col-md-6">
+                <!-- Coluna ocupando 6 partes do grid system do Bootstrap -->
                 <select name="tema" class="form-select form-control input100">
+                    <!-- Dropdown para seleção do tema do questionário -->
                     <option value="software">Software</option>
                     <option value="informatica">Informática</option>
                     <option value="tecnologia">Tecnologia</option>
@@ -44,7 +55,7 @@
                     <option value="swift">Swift</option>
                     <option value="go">Go</option>
                     <option value="ux">UX</option>
-                    <option value="ui">UI</endoption>
+                    <option value="ui">UI</option>
                     <option value="design_grafico">Design Gráfico</option>
                     <option value="web_design">Web Design</option>
                     <option value="design_de_interacao">Design de Interação</option>
@@ -53,18 +64,17 @@
                     <option value="paleta_de_cores">Paleta de Cores</option>
                     <option value="design_de_produto">Design de Produto</option>
                     <option value="design_de_servico">Design de Serviço</option>
+                    <!-- Lista de opções do dropdown -->
                 </select>
-
-
             </div>
             <div class="col-md-6">
+                <!-- Coluna ocupando 6 partes do grid system do Bootstrap -->
                 <button type="submit" class="btn btn-primary btn-lg">Gerar Questionário</button>
+                <!-- Botão para enviar o formulário e gerar o questionário -->
             </div>
         </div>
-
-
     </form>
 </div>
 
-
 {% endblock %}
+<!-- Fim do bloco de conteúdo -->

@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
+<!-- Estende o template base.html -->
 
 {% block title %}Sign Up{% endblock %}
+<!-- Define o bloco de título da página como "Sign Up" -->
 
 {% block content %}
+<!-- Início do bloco de conteúdo -->
 
 <div class="bodyLogin text-center">
+    <!-- Div principal com classes de estilo para centralizar o conteúdo -->
     <div class="screen-1">
+        <!-- Div para estilizar a tela de registro -->
         <div class="">
             <div>
+                <!-- Exibe a logo -->
                 <img class="alter" src="{{ url_for('static', filename='images/hackers5-2.png') }}" alt="LOGO">
             </div>
+            <!-- Formulário de registro -->
             <form class="validate-form" method="POST">
                 {{ form.hidden_tag() }}
+                <!-- Campo oculto para CSRF token -->
                 <div class="" data-validate="Entre com um usuario válido!">
+                    <!-- Campo de entrada para o nome de usuário -->
                     {{ form.username(class="form-control input100", placeholder="Usuário") }}
                     <span class=""></span>
                     <span class="">
@@ -21,6 +30,7 @@
                 </div>
 
                 <div class="" data-validate="Password is required">
+                    <!-- Campo de entrada para a senha -->
                     {{ form.password(class="form-control input100", placeholder="Senha") }}
                     <span class=""></span>
                     <span class="">
@@ -28,6 +38,7 @@
                     </span>
                 </div>
                 <div class="" data-validate="Password is required">
+                    <!-- Campo de entrada para confirmação de senha -->
                     {{ form.confirm_password(class="form-control input100", placeholder="Confirme Senha" ) }}
                     <span class=""></span>
                     <span class="">
@@ -35,7 +46,8 @@
                     </span>
                 </div>
                 <div class="row d-flex justify-content-center align-content-center">
-                    <button class="btn btn-success  btn-lg  col-3" type="submit">
+                    <!-- Botão de submissão do formulário -->
+                    <button class="btn btn-success btn-lg col-3" type="submit">
                         Criar conta!
                     </button>
                 </div>
@@ -44,3 +56,4 @@
     </div>
 </div>
 {% endblock %}
+<!-- Fim do bloco de conteúdo -->

@@ -1,102 +1,170 @@
 {% extends 'base.html' %}
+<!-- Estende o template base.html, reutilizando sua estrutura básica -->
 
 {% block title %}Sign Up{% endblock %}
+<!-- Define o bloco de título da página como "Sign Up" -->
 
 {% block content %}
+<!-- Início do bloco de conteúdo -->
+
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/rank.css') }}">
+<!-- Link para o arquivo CSS específico para estilização desta página -->
+
 <div class="text-center mb-4">
-    <h1 class="">Rank dos dos maiores ganhadores</h1>
+    <!-- Div para centralizar o conteúdo com margem inferior -->
+    <h1 class="">Rank dos maiores ganhadores</h1>
+    <!-- Título centralizado para a seção de ranking -->
 </div>
+
 <div class="container mt-4">
-    <div class="row justify-content-center mt-4 ">
+    <!-- Contêiner principal com margem superior -->
+    <div class="row justify-content-center mt-4">
+        <!-- Linha para organizar os cards com margem superior e centrado -->
+
         <!-- Primeiro colocado -->
         <div class="col-lg-4">
+            <!-- Coluna ocupando 4 partes do grid system do Bootstrap -->
             <div class="card first-place">
+                <!-- Card estilizado como "primeiro lugar" -->
                 <div class="card-body">
+                    <!-- Corpo do card -->
                     <div class="ranks">
+                        <!-- Div para conteúdo do ranking -->
                         <h3 class="mb-0">Thiago Barros Gomes</h3>
+                        <!-- Nome do primeiro colocado -->
                         <img class="imgRankMaster" src="{{ url_for('static', filename='images/rank/24.png')}}"
                             alt="rank master" title="Rank Master">
+                        <!-- Imagem do ranking -->
                     </div>
                     <h5 class="card-title">Thiago Barros Gomes</h5>
+                    <!-- Nome do primeiro colocado novamente -->
                     <p class="card-text">Pontos 230</p>
+                    <!-- Pontuação do primeiro colocado -->
                 </div>
             </div>
         </div>
+
         <!-- Segundo colocado -->
         <div class="col-lg-4">
+            <!-- Coluna ocupando 4 partes do grid system do Bootstrap -->
             <div class="card second-place">
+                <!-- Card estilizado como "segundo lugar" -->
                 <div class="card-body">
+                    <!-- Corpo do card -->
                     <div class="ranks">
+                        <!-- Div para conteúdo do ranking -->
                         <h3 class="mb-0">Pedro Otavio</h3>
+                        <!-- Nome do segundo colocado -->
                         <img class="imgRankSecond" src="{{ url_for('static', filename='images/rank/23.png')}}"
                             alt="rank master" title="Rank Master">
+                        <!-- Imagem do ranking -->
                     </div>
-                    <h5 class="card-title">Thiago Barros Gomes</h5>
+                    <h5 class="card-title">Pedro Otavio</h5>
+                    <!-- Nome do segundo colocado novamente -->
                     <p class="card-text">Pontos 225</p>
+                    <!-- Pontuação do segundo colocado -->
                 </div>
             </div>
         </div>
+
         <!-- Terceiro colocado -->
         <div class="col-lg-4">
+            <!-- Coluna ocupando 4 partes do grid system do Bootstrap -->
             <div class="card third-place">
+                <!-- Card estilizado como "terceiro lugar" -->
                 <div class="card-body">
+                    <!-- Corpo do card -->
                     <div class="ranks">
+                        <!-- Div para conteúdo do ranking -->
                         <h3 class="mb-0">Guilherme Afonso</h3>
+                        <!-- Nome do terceiro colocado -->
                         <img class="imgRankTirth" src="{{ url_for('static', filename='images/rank/22.png')}}"
                             alt="rank master" title="Rank Master">
+                        <!-- Imagem do ranking -->
                     </div>
                     <p class="card-text">Pontos 200</p>
+                    <!-- Pontuação do terceiro colocado -->
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row mt-4">
+        <!-- Linha para organizar os próximos colocados com margem superior -->
+
         <!-- Quarto colocado -->
         <div class="col-lg-3">
+            <!-- Coluna ocupando 3 partes do grid system do Bootstrap -->
             <div class="card other-place">
+                <!-- Card estilizado para outros colocados -->
                 <div class="card-body">
+                    <!-- Corpo do card -->
                     <h5 class="card-title">Quarto Colocado</h5>
+                    <!-- Título do card -->
                     <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/21.png')}}"
                         alt="rank master" title="Rank Master">
+                    <!-- Imagem do ranking -->
                     <p class="card-text">Pontos 188</p>
+                    <!-- Pontuação do quarto colocado -->
                 </div>
             </div>
         </div>
-        <!-- Quinto colocado -->
 
+        <!-- Quinto colocado -->
         <div class="col-lg-3">
+            <!-- Coluna ocupando 3 partes do grid system do Bootstrap -->
             <div class="card other-place">
+                <!-- Card estilizado para outros colocados -->
                 <div class="card-body">
-                    <h5 class="card-title">Quarto Colocado</h5>
+                    <!-- Corpo do card -->
+                    <h5 class="card-title">Quinto Colocado</h5>
+                    <!-- Título do card -->
                     <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/20.png')}}"
                         alt="rank master" title="Rank Master">
-                    <p class="card-text">Pontos 188</p>
+                    <!-- Imagem do ranking -->
+                    <p class="card-text">Pontos 180</p>
+                    <!-- Pontuação do quinto colocado -->
                 </div>
             </div>
         </div>
+
         <!-- Sexto colocado -->
         <div class="col-lg-3">
+            <!-- Coluna ocupando 3 partes do grid system do Bootstrap -->
             <div class="card other-place">
+                <!-- Card estilizado para outros colocados -->
                 <div class="card-body">
-                    <h5 class="card-title">Quarto Colocado</h5>
+                    <!-- Corpo do card -->
+                    <h5 class="card-title">Sexto Colocado</h5>
+                    <!-- Título do card -->
                     <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/19.png')}}"
                         alt="rank master" title="Rank Master">
-                    <p class="card-text">Pontos 188</p>
+                    <!-- Imagem do ranking -->
+                    <p class="card-text">Pontos 175</p>
+                    <!-- Pontuação do sexto colocado -->
                 </div>
             </div>
         </div>
+
         <!-- Sétimo colocado -->
         <div class="col-lg-3">
+            <!-- Coluna ocupando 3 partes do grid system do Bootstrap -->
             <div class="card other-place">
+                <!-- Card estilizado para outros colocados -->
                 <div class="card-body">
-                    <h5 class="card-title">Quarto Colocado</h5>
+                    <!-- Corpo do card -->
+                    <h5 class="card-title">Sétimo Colocado</h5>
+                    <!-- Título do card -->
                     <img class="imgRankAll" src="{{ url_for('static', filename='images/rank/18.png')}}"
                         alt="rank master" title="Rank Master">
-                    <p class="card-text">Pontos 188</p>
+                    <!-- Imagem do ranking -->
+                    <p class="card-text">Pontos 170</p>
+                    <!-- Pontuação do sétimo colocado -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
+<!-- Fim do bloco de conteúdo -->
