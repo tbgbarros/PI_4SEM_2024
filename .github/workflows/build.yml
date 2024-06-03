@@ -45,7 +45,7 @@ jobs:
       working-directory: CODIFICAÇÃO  # Definir o diretório de trabalho
       env:
         CHATGPT_API_KEY: ${{ secrets.CHATGPT_API_KEY }}  # Usar a chave de API do ChatGPT armazenada nos segredos do repositório
-        DATABASE_URL: mysql+pymysql://root:root@127.0.0.1:3306/testdb  # Definir a URL de conexão com o banco de dados
+        DATABASE_URL: mysql+pymysql://root:${{ secrets.DB_PASSWORD }}@127.0.0.1:3306/testdb  # Definir a URL de conexão com o banco de dados
       run: |
         nohup python run.py &  # Iniciar a aplicação Flask em segundo plano
 
