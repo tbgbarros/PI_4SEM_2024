@@ -53,5 +53,5 @@ Divirta-se explorando a rede social e compartilhando conhecimento! 🚀🔐
  > username = db.Column(db.String(64), index=True, unique=True)
  > password_encrypted = db.Column(db.LargeBinary)
  > hash = db.Column(db.String(44))  # Store the key as a base64 encoded string
-- 6º Com o banco criado e ativado o projeto será alocado pelo servidor do xampp e rodara normalmente.
+- 6º Com o banco criado e ativado o projeto será alocado pelo servidor do xampp e rodara normalmente..
 
